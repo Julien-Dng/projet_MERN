@@ -9,7 +9,7 @@ export default class Register extends Component {
       super(props);
   
       this.state = {
-        isLoading: false,
+        
         email: "",
         username: "",
         password: "",

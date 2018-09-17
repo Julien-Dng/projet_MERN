@@ -5,7 +5,7 @@ import decode from 'jwt-decode';
 import Login from "./Login";
 import Register from "./Register";
 import Profile from "./Profile";
-
+import Logout from "./Logout";
 
 export const Auth = {
     // isAuthenticated: false,
@@ -25,7 +25,7 @@ export const Auth = {
             }
             response.json().then(res => {
                 localStorage.setItem('id_token', res.token);
-                callback();
+                    callback();                
             });
             // return response.json();
         }).catch(function(err) {
@@ -69,7 +69,8 @@ export default () =>
     <PrivateRoute path="/" exact component={Profile} />;
     <Route path="/Login" exact component={Login} />;
     <Route path="/Register" exact component={Register} />;
-    <Route path="/Profile" exact component={Profile} />
+    <Route path="/Profile" exact component={Profile} />;
+    <Route path="/Logout" exact component={Logout} />
 </Switch>
 
 

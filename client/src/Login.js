@@ -30,18 +30,21 @@ export default class Login extends Component {
       });
     }
   
-    handleSubmit = event => {
+    handleSubmit = event => {      
       event.preventDefault();
-        var data = {
-            email: this.state.email,
-            password: this.state.password
-        }
-        Auth.authenticate(
-          data,
-          () => this.setState({redirectToReferrer: true}),
+      var data = {
+        email: this.state.email,
+        password: this.state.password
+      }
+      Auth.authenticate(
+        data,
+        () => {
+          //this.props.router.push('/')            
+          this.setState({redirectToReferrer: true})
+          window.location.reload();              
+          },
           (err) => alert(err)
         );
-
     }
   
     render() {
